@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import styled, { keyframes } from 'styled-components';
-import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaGithub, FaWeixin, FaPaperPlane, FaMusic } from 'react-icons/fa';
+import { SiGitee, SiTiktok } from 'react-icons/si';
 import { Typewriter } from './Typewriter';
 
 const pulse = keyframes`
@@ -156,6 +158,34 @@ const SocialIcon = styled(motion.a)`
   }
 `;
 
+const QrModal = styled(motion.div)`
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(24, 24, 27, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(165, 180, 252, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  z-index: 100;
+  width: 220px;
+  box-shadow: 0 10px 40px rgba(165, 180, 252, 0.15);
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  p {
+    margin-top: 0.75rem;
+    color: rgba(240, 240, 240, 0.8);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+`;
+
 const ScrollIndicator = styled(motion.div)`
   position: absolute;
   bottom: 40px;
@@ -214,6 +244,8 @@ const fadeInUp = {
 };
 
 export function Header() {
+  const [showWechatQr, setShowWechatQr] = useState(false);
+
   return (
     <HeroContainer>
       <LogoGlow />
@@ -238,24 +270,58 @@ export function Header() {
           <FaGithub />
         </SocialIcon>
         <SocialIcon 
-          href="https://twitter.com/rexrune" 
+          href="https://www.feishu.cn/invitation/page/add_contact/?token=cbdrbf0a-b729-42a7-865d-55376072c05d" 
           target="_blank" 
           rel="noopener noreferrer"
           whileHover={{ scale: 1.3, rotate: [0, -10, 10, 0] }}
           whileTap={{ scale: 0.9 }}
         >
-          <FaTwitter />
+          <FaPaperPlane />
         </SocialIcon>
         <SocialIcon 
-          href="https://linkedin.com/in/rexrune" 
+          href="https://gitee.com/Fomalhaut_luke" 
           target="_blank" 
           rel="noopener noreferrer"
           whileHover={{ scale: 1.3, rotate: [0, -10, 10, 0] }}
           whileTap={{ scale: 0.9 }}
         >
-          <FaLinkedin />
+          <SiGitee />
+        </SocialIcon>
+        <SocialIcon 
+          href="#" 
+          onClick={(e) => {
+            e.preventDefault();
+            setShowWechatQr(!showWechatQr);
+          }}
+          onMouseEnter={() => setShowWechatQr(true)}
+          onMouseLeave={() => setShowWechatQr(false)}
+          whileHover={{ scale: 1.3, rotate: [0, -10, 10, 0] }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <FaWeixin />
+          {showWechatQr && (
+            <QrModal
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.2 }}
+            >
+              <img src="/weixinq.png" alt="微信二维码" />
+              <p>扫描二维码添加微信</p>
+            </QrModal>
+          )}
+        </SocialIcon>
+        <SocialIcon 
+          href="https://www.douyin.com/user/fomalhaut_m" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.3, rotate: [0, -10, 10, 0] }}
+          whileTap={{ scale: 0.9 }}
+        >
+          <SiTiktok />
         </SocialIcon>
       </SocialLinks>
+
       <ScrollIndicator
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

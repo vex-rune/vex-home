@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-const SectionTitleStyled = styled(motion.h2)`
+const SectionTitleStyled = styled(motion.h2)<{ $align?: string }>`
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
   margin-bottom: 30px;
   color: #f0f0f0;
   position: relative;
+  text-align: ${props => props.$align || 'left'};
   
   &::after {
     content: '';
@@ -22,8 +23,9 @@ const SectionTitleStyled = styled(motion.h2)`
 
 interface SectionTitleProps {
   children: React.ReactNode;
+  align?: string;
 }
 
-export function SectionTitle({ children }: SectionTitleProps) {
-  return <SectionTitleStyled>{children}</SectionTitleStyled>;
+export function SectionTitle({ children, align }: SectionTitleProps) {
+  return <SectionTitleStyled $align={align}>{children}</SectionTitleStyled>;
 }

@@ -67,17 +67,22 @@ const GlowOrb = styled(motion.div)<{ $size?: string; $color?: string; $top?: str
   z-index: 0;
 `;
 
+const SectionContent = styled.div`
+  max-width: 1200px;
+  width: 100%;
+`;
+
 const AboutSection = styled(Section)`
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
   padding: 100px 20px;
 `;
 
 const AboutContainer = styled.div`
-  max-width: 1200px;
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 60px;
+  max-width: 1200px;
+  width: 100%;
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
@@ -94,7 +99,7 @@ const AboutText = styled(motion.p)`
 
 const ProjectsSection = styled(Section)`
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 100px 20px;
   background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.02) 50%, transparent 100%);
 `;
@@ -105,26 +110,20 @@ const ProjectsGrid = styled(motion.div)`
   gap: 30px;
   max-width: 1200px;
   width: 100%;
-  margin-top: 40px;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 `;
 
 const WikiSection = styled(Section)`
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   padding: 100px 20px;
 `;
 
 const WikiList = styled(motion.div)`
-  max-width: 800px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-top: 40px;
+  max-width: 800px;
+  width: 100%;
 `;
 
 const Footer = styled(motion.footer)`
@@ -218,7 +217,9 @@ export default function App() {
           initial="hidden"
           animate="visible"
         >
-          <Header />
+          <SectionContent>
+            <Header />
+          </SectionContent>
         </Section>
 
         <AboutSection
@@ -227,7 +228,7 @@ export default function App() {
           viewport={{ once: false, amount: 0.3 }}
         >
           <AboutContainer>
-            <SectionTitle>关于我</SectionTitle>
+            <SectionTitle align="left">关于我</SectionTitle>
             <div>
               <AboutText variants={fadeInUp}>
                 高级后端开发工程师，拥有十余年 IT 行业从业经验。主攻 Java 技术生态，擅长企业级应用开发与微服务架构。
@@ -244,7 +245,7 @@ export default function App() {
           whileInView="visible"
           viewport={{ once: false, amount: 0.2 }}
         >
-          <SectionTitle>精选作品</SectionTitle>
+          <SectionTitle align="left">精选作品</SectionTitle>
           <ProjectsGrid variants={fadeInUp}>
             {projects.map((project, index) => (
               <ProjectCard
@@ -262,7 +263,7 @@ export default function App() {
           whileInView="visible"
           viewport={{ once: false, amount: 0.3 }}
         >
-          <SectionTitle>Wiki 知识库</SectionTitle>
+          <SectionTitle align="left">Wiki 知识库</SectionTitle>
           <WikiList variants={fadeInUp}>
             {wikiItems.map((item, index) => (
               <WikiItem
