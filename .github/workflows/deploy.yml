@@ -26,9 +26,9 @@ jobs:
         run: npm run build
 
       # ✅ 阿里云官方一键安装 ossutil
-      - name: 📁 官方一键安装 ossutil
+      - name: 📁 官方安装 ossutil
         run: |
-          sudo -v ; curl https://gosspublic.aliyuncs.com/ossutil/install.sh | sudo bash -s -- --install-dir /usr/local/bin --tool-name ossutil
+          curl https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
           ossutil --version
 
       - name: 🔑 配置 OSS 凭证
