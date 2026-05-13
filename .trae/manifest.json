@@ -1,0 +1,339 @@
+{
+  "manifestVersion": "1",
+  "packageLayoutVersion": "1",
+  "encoding": "tech-test-automation--tech-code-review--tech-code-refactoring--design-ui-prototype--design-prd-writing--design-interaction-design-soul:MONK",
+  "markdownUrl": "https://api.skillhub.cn/api/v1/markdown/tech-test-automation--tech-code-review--tech-code-refactoring--design-ui-prototype--design-prd-writing--design-interaction-design-soul:MONK.md",
+  "soul": {
+    "slug": "MONK",
+    "displayName": "MONK・僧侣",
+    "summary": "看破红尘，深沉古朴的僧侣，善哉。",
+    "remark": ""
+  },
+  "skillSets": [
+    {
+      "slug": "tech-test-automation",
+      "displayName": "自动化测试",
+      "summary": "从TDD方法论指导到自动生成单元测试代码、跨语言测试编写与运行、Playwright/Cypress E2E测试编排、REST/GraphQL API测试自动化，再到QA测试计划与覆盖率矩阵生成的完整自动化测试工作流。支持Python(pytest)、JavaScript(Jest/Vitest/Mocha)、Go等多语言，覆盖单元测试、集成测试、E2E测试、API测试和性能测试。",
+      "remark": "",
+      "scene": "tech",
+      "subScene": "test-automation",
+      "skillSlugs": [
+        "tdd-guide",
+        "test-case-generator",
+        "test-patterns",
+        "e2e-test-orchestrator",
+        "api-test-automation",
+        "afrexai-qa-test-plan"
+      ],
+      "referencedSkills": [
+        {
+          "slug": "tdd-guide",
+          "displayName": "Tdd Guide",
+          "summary": "Test-driven development skill for writing unit tests, generating test fixtures and mocks, analyzing coverage gaps, and guiding red-green-refactor workflows a..."
+        },
+        {
+          "slug": "test-case-generator",
+          "displayName": "Test Case Generator",
+          "summary": "Automatically generate complete unit test code including imports, test cases, mocks, and assertions for Jest, Mocha, or Pytest from given code."
+        },
+        {
+          "slug": "test-patterns",
+          "displayName": "Test Patterns",
+          "summary": "Write and run tests across languages and frameworks. Use when setting up test suites, writing unit/integration/E2E tests, measuring coverage, mocking dependencies, or debugging test failures. Covers Node.js (Jest/Vitest), Python (pytest), Go, Rust, and Bash."
+        },
+        {
+          "slug": "e2e-test-orchestrator",
+          "displayName": "E2e Test Orchestrator",
+          "summary": "端到端（E2E）测试编排与执行。用于用户要求：设计测试用例、基于 Playwright/Cypress 实现自动化脚本、通过源码优先定位元素并在必要时使用截图/图像识别兜底、执行测试、自动修复脚本问题（如定位器或等待策略）、并输出结构化测试报告。"
+        },
+        {
+          "slug": "api-test-automation",
+          "displayName": "Api Test Automation",
+          "summary": "API接口测试自动化工具，支持REST/GraphQL，包含接口测试、性能测试、契约测试、Mock服务等功能 | API Test Automation for REST/GraphQL with performance, contract testing and Mock services"
+        },
+        {
+          "slug": "afrexai-qa-test-plan",
+          "displayName": "QA Test Plan Generator",
+          "summary": "Generate detailed QA test plans with coverage matrices, test cases, bug severity, automation ROI, release checklists, and metrics dashboards for engineering..."
+        }
+      ]
+    },
+    {
+      "slug": "tech-code-review",
+      "displayName": "代码审查",
+      "summary": "从GitHub PR自动接入到严格代码审查、编码规范检查与自动修复、安全漏洞扫描、整洁代码原则验证，再到生成结构化中文审查报告的完整代码审查工作流。支持Python、JavaScript、TypeScript、Go、Swift、Kotlin等多语言，覆盖Bug检测、安全漏洞、性能问题、代码风格、复杂度分析等维度。",
+      "remark": "",
+      "scene": "tech",
+      "subScene": "code-review",
+      "skillSlugs": [
+        "pr-reviewer",
+        "critical-code-reviewer",
+        "project-code-standard",
+        "security-audit",
+        "clean-code-review",
+        "cody"
+      ],
+      "referencedSkills": [
+        {
+          "slug": "pr-reviewer",
+          "displayName": "pr-reviewer",
+          "summary": "Automated GitHub PR code review with diff analysis, lint integration, and structured reports. Use when reviewing pull requests, checking for security issues,..."
+        },
+        {
+          "slug": "critical-code-reviewer",
+          "displayName": "Critical Code Reviewer",
+          "summary": "Conduct rigorous, adversarial code reviews with zero tolerance for mediocrity. Use when users ask to \"critically review\" my code or a PR, \"critique my code\", \"find issues in my code\", or \"what's wrong with this code\". Identifies security holes, lazy patterns, edge case failures, and bad practices across Python, R, JavaScript/TypeScript, SQL, and front-end code. Scrutinizes error handling, type safety, performance, accessibility, and code quality. Provides structured feedback with severity tiers (Blocking, Required, Suggestions) and specific, actionable recommendations."
+        },
+        {
+          "slug": "project-code-standard",
+          "displayName": "Project Code Standard",
+          "summary": "此 skill 用于检查、执行和修复项目代码规范。当用户需要为项目建立代码风格标准、 检查代码是否符合规范、自动修复格式问题、生成代码质量报告，或在 Code Review 中验证提交是否满足团队规范时激活。支持 Python (PEP8/black/ruff)、JavaScript/ TypeScript (E..."
+        },
+        {
+          "slug": "security-audit",
+          "displayName": "Security Audit",
+          "summary": "Comprehensive security auditing for Clawdbot deployments. Scans for exposed credentials, open ports, weak configs, and vulnerabilities. Auto-fix mode included."
+        },
+        {
+          "slug": "clean-code-review",
+          "displayName": "Clean Code",
+          "summary": "Pragmatic coding standards for writing clean, maintainable code — naming, functions, structure, anti-patterns, and pre-edit safety checks. Use when writing new code, refactoring existing code, reviewing code quality, or establishing coding standards."
+        },
+        {
+          "slug": "cody",
+          "displayName": "code-review-assistant",
+          "summary": "代码 Review 助手。分析 Git diff 或代码片段，输出结构化中文 Review 报告，覆盖 Bug、安全漏洞、性能问题、可读性、最佳实践、类型安全、错误处理、测试覆盖。支持严格程度配置（信息/优化/标准/严重）和多种主流语言（Python/JS/TS/Java/Go/Rust）。支持 GitHub/G..."
+        }
+      ]
+    },
+    {
+      "slug": "tech-code-refactoring",
+      "displayName": "代码重构",
+      "summary": "从深度代码结构分析与DDD模式识别、技术债务评估与架构反模式检测、SOLID/整洁代码/整洁架构原则指导、经典重构模式与遗留代码改造技术，到系统架构与模块化设计、不改变行为的代码简化重构执行的完整代码重构工作流。支持复杂度分析、依赖关系可视化、设计模式应用和渐进式重构策略。",
+      "remark": "",
+      "scene": "tech",
+      "subScene": "code-refactoring",
+      "skillSlugs": [
+        "code-analyzer",
+        "agent-git-oracle",
+        "uncle-bob",
+        "code-refactoring",
+        "system-architect",
+        "simplify"
+      ],
+      "referencedSkills": [
+        {
+          "slug": "code-analyzer",
+          "displayName": "Code Analyzer",
+          "summary": "深度代码分析工具。分析代码架构、执行流程、数据流、业务规则、外部依赖、数据模型，支持 DDD 模式识别（聚合根、实体、值对象、领域服务、仓储、领域事件、限界上下文）。使用场景：新代码库熟悉、架构文档生成、代码审查准备、技术债务评估、知识传承、DDD 模式识别。支持 Python、JavaScript、TypeSc..."
+        },
+        {
+          "slug": "agent-git-oracle",
+          "displayName": "Agent Git Oracle",
+          "summary": "Advanced repository analysis and refactoring guide. Identifies technical debt and architectural anti-patterns using AI reasoning."
+        },
+        {
+          "slug": "uncle-bob",
+          "displayName": "Uncle  Bob",
+          "summary": "Apply Robert C. Martin (Uncle Bob) principles for clean code, SOLID design, and clean architecture. Use when: (1) reviewing or refactoring code for quality,..."
+        },
+        {
+          "slug": "code-refactoring",
+          "displayName": "Code Refactoring",
+          "summary": "Code refactoring patterns and techniques for improving code quality without changing behavior. Use for cleaning up legacy code, reducing complexity, or impro..."
+        },
+        {
+          "slug": "system-architect",
+          "displayName": "System Architect",
+          "summary": "Acts as a Senior System Architect to design robust, scalable, and maintainable software architectures. Enforces industry standards (PEP 8 for Python, ESLint for JS/TS), modular design, and security best practices. Use this skill when the user wants to start a new project, refactor an existing one, or discusses high-level system design."
+        },
+        {
+          "slug": "simplify",
+          "displayName": "Simplify Code",
+          "summary": "Refactor code for clarity, consistency, and maintainability without changing behavior. Use when the user types /simplify or asks to simplify code."
+        }
+      ]
+    },
+    {
+      "slug": "design-ui-prototype",
+      "displayName": "UI 原型设计",
+      "summary": "从产品需求零提问直出PRD到设计方向、设计稿像素级还原，到设计令牌体系与组件规范制定、UI设计质量审查与反模式识别，再到低保真线框图绘制和高保真生产级HTML/Tailwind原型输出的完整UI原型设计工作流。支持Figma/Sketch设计稿解析、响应式布局、移动优先设计、设计系统构建和交互原型生成。",
+      "remark": "",
+      "scene": "design",
+      "subScene": "ui-prototype",
+      "skillSlugs": [
+        "prd-to-prototype",
+        "design-to-code",
+        "ui-design-system",
+        "ui-design",
+        "wireframe",
+        "frontend-design-ultimate"
+      ],
+      "referencedSkills": [
+        {
+          "slug": "prd-to-prototype",
+          "displayName": "PRD to Prototype",
+          "summary": "从产品需求到可交互原型的完整工作流。当用户表达产品想法（如'我想做一个...'、'帮我设计...'）时触发。支持：1) 零提问直出PRD 2) 平台选择确认 3) 生成Awwwards级别的高保真HTML/Tailwind原型（移动端/PC端）。端到端产品设计流程。"
+        },
+        {
+          "slug": "design-to-code",
+          "displayName": "Design To Code",
+          "summary": "Implements UI from design mockups (Figma, Sketch, or image) with pixel-accurate layout, responsive behavior, and design tokens. Use when 还原设计图, implementing..."
+        },
+        {
+          "slug": "ui-design-system",
+          "displayName": "Ui Design System",
+          "summary": "UI design system toolkit for Senior UI Designer including design token generation, component documentation, responsive design calculations, and developer han..."
+        },
+        {
+          "slug": "ui-design",
+          "displayName": "UI Design",
+          "summary": "Comprehensive UI design skill covering fundamentals, patterns, and anti-patterns. Layout, typography, color, spacing, accessibility, motion, and component design. Use when building any web interface, reviewing design quality, or creating distinctive UIs."
+        },
+        {
+          "slug": "wireframe",
+          "displayName": "Wireframe",
+          "summary": "Create wireframes and user flows. Use when sketching page layouts in ASCII/SVG, mapping flows, or exporting to HTML."
+        },
+        {
+          "slug": "frontend-design-ultimate",
+          "displayName": "Frontend Design Ultimate",
+          "summary": "Create distinctive, production-grade static sites with React, Tailwind CSS, and shadcn/ui — no mockups needed. Generates bold, memorable designs from plain text requirements with anti-AI-slop aesthetics, mobile-first responsive patterns, and single-file bundling. Use when building landing pages, marketing sites, portfolios, dashboards, or any static web UI. Supports both Vite (pure static) and Next.js (Vercel deploy) workflows."
+        }
+      ]
+    },
+    {
+      "slug": "design-prd-writing",
+      "displayName": "PRD 撰写",
+      "summary": "从多轮对话式需求探索与EPIC分解、RICE优先级排序与客户访谈分析框架，到结构化PRD创建（含用户故事与验收标准）、专业PRD撰写润色、PRD转设计需求文档（信息架构/交互流程/页面布局），再到PRD量化评审打分的完整PRD撰写工作流。支持需求分析、优先级排序、文档生成、设计交付和质量评审全链路。",
+      "remark": "",
+      "scene": "design",
+      "subScene": "prd-writing",
+      "skillSlugs": [
+        "requirements-analysis",
+        "product-manager-toolkit",
+        "prd",
+        "prd-writer-pro",
+        "prd-to-design-doc",
+        "prd-reviewer"
+      ],
+      "referencedSkills": [
+        {
+          "slug": "requirements-analysis",
+          "displayName": "requirements-analysis",
+          "summary": "专业需求分析师，通过多轮对话将简短想法转化为详细需求文档。使用此技能当用户需要：(1) 分析和记录需求，(2) 将 EPIC 分解为需求和用户故事，(3) 对多个需求进行优先级排序，(4) 识别利益相关者和依赖关系，(5) 定义验收标准，(6) 创建需求文档。支持单个需求分析、EPIC 分解、MoSCoW/RIC..."
+        },
+        {
+          "slug": "product-manager-toolkit",
+          "displayName": "Product Manager Toolkit",
+          "summary": "Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market..."
+        },
+        {
+          "slug": "prd",
+          "displayName": "Prd",
+          "summary": "Create and manage Product Requirements Documents (PRDs). Use when: (1) Creating structured task lists with user stories, (2) Specifying features with acceptance criteria, (3) Planning feature implementation for AI agents or human developers."
+        },
+        {
+          "slug": "prd-writer-pro",
+          "displayName": "PRD文档撰写助手Pro",
+          "summary": "专业的产品需求文档（PRD）撰写助手。用于将产品需求转化为结构清晰、内容完整的 PRD 文档。 **使用场景：** (1) 新产品功能的需求文档撰写 (2) 现有功能的优化需求文档 (3) 将用户故事转化为 PRD (4) 快速生成 PRD 初稿 **触发词：** \"写PRD\"、\"生成PRD\"、\"产品需求文档\"、..."
+        },
+        {
+          "slug": "prd-to-design-doc",
+          "displayName": "产品prd转设计文档",
+          "summary": ""
+        },
+        {
+          "slug": "prd-reviewer",
+          "displayName": "Prd Reviewer",
+          "summary": "PRD需求评审评分专家工具。对产品PRD进行10分制严格量化评分，输出总分、各模块得分及详细扣分说明。触发场景：用户上传PRD并要求评审打分；用户要求按PRD评分标准对需求进行评分；需要生成PRD评审报告。"
+        }
+      ]
+    },
+    {
+      "slug": "design-interaction-design",
+      "displayName": "交互设计",
+      "summary": "从数据驱动的用户画像构建与旅程映射、UI/UX信息架构与视觉风格设计、自动化UX可用性审计（视觉层级/认知负荷/导航评估）、微交互设计与WCAG 2.2无障碍规范，到量化美学与动效优化、WCAG 2.1 AA合规实现的完整交互设计工作流。覆盖用户研究、交互方案、可用性评估和无障碍实现全链路。",
+      "remark": "",
+      "scene": "design",
+      "subScene": "interaction-design",
+      "skillSlugs": [
+        "ux-researcher-designer",
+        "ui-ux-pro-max",
+        "ui-audit",
+        "ui-ux-design",
+        "human-optimized-frontend",
+        "accessibility"
+      ],
+      "referencedSkills": [
+        {
+          "slug": "ux-researcher-designer",
+          "displayName": "Ux Researcher Designer",
+          "summary": "UX research and design toolkit for Senior UX Designer/Researcher including data-driven persona generation, journey mapping, usability testing frameworks, and..."
+        },
+        {
+          "slug": "ui-ux-pro-max",
+          "displayName": "UI/UX Pro Max",
+          "summary": "UI/UX design intelligence and implementation guidance for building polished interfaces. Use when the user asks for UI design, UX flows, information architecture, visual style direction, design systems/tokens, component specs, copy/microcopy, accessibility, or to generate/critique/refine frontend UI (HTML/CSS/JS, React, Next.js, Vue, Svelte, Tailwind). Includes workflows for (1) generating new UI layouts and styling, (2) improving existing UI/UX, (3) producing design-system tokens and component guidelines, and (4) turning UX recommendations into concrete code changes."
+        },
+        {
+          "slug": "ui-audit",
+          "displayName": "UI Audit",
+          "summary": "AI skill for automated UI audits. Evaluate interfaces against proven UX principles for visual hierarchy, accessibility, cognitive load, navigation, and more. Based on Making UX Decisions by Tommy Geoco."
+        },
+        {
+          "slug": "ui-ux-design",
+          "displayName": "UI/UX Design Guide",
+          "summary": "Expert guidance on mobile-first UI/UX design, color systems, typography, accessibility (WCAG 2.2), Tailwind + Shadcn/ui integration, micro-interactions, and..."
+        },
+        {
+          "slug": "human-optimized-frontend",
+          "displayName": "human-optimized-frontend",
+          "summary": "Generates a frontend interface that is visually pleasing and experientially sound by jointly optimizing aesthetics, motion graphics, and user experience (UX) using quantified evaluation. Use only when the user explicitly invokes this skill by name to redesign a frontend. Trigger keywords: use human-optimized-frontend, redesign frontend, redesign interface."
+        },
+        {
+          "slug": "accessibility",
+          "displayName": "Accessibility",
+          "summary": "Build WCAG 2.1 AA compliant websites with semantic HTML, proper ARIA, focus management, and screen reader support. Includes color contrast (4.5:1 text), keyboard navigation, form labels, and live regions.\n\nUse when implementing accessible interfaces, fixing screen reader issues, keyboard navigation, or troubleshooting \"focus outline missing\", \"aria-label required\", \"insufficient contrast\"."
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": "soul.md",
+      "sha256": "9d8d5d8fc1f3dc468039678f3157b217684fad297800c49c6fe94039a38ca533",
+      "size": 4297
+    },
+    {
+      "path": "skillsets/tech-test-automation.md",
+      "sha256": "ab6006031e7c797e6c578e5276442b0fa076b1a9e1fe5bc3b9d345984695b3bc",
+      "size": 5097
+    },
+    {
+      "path": "skillsets/tech-code-review.md",
+      "sha256": "8449cc01c7eae45f1b3b29bd0f993be3a1668850a961d50ab1bac854c69c4bb6",
+      "size": 5371
+    },
+    {
+      "path": "skillsets/tech-code-refactoring.md",
+      "sha256": "dd9954168111239a8791f13f75ec7ef8171f0841048ee68d1ccbac79370a6dd9",
+      "size": 5670
+    },
+    {
+      "path": "skillsets/design-ui-prototype.md",
+      "sha256": "2c101256c12007e8a13ff02e1696088121f93b462944cb2835f425ad4d228de4",
+      "size": 5450
+    },
+    {
+      "path": "skillsets/design-prd-writing.md",
+      "sha256": "c9479528b5a800a2d942f61ad9774a83b633833f3af877114e3babe84e0af042",
+      "size": 5193
+    },
+    {
+      "path": "skillsets/design-interaction-design.md",
+      "sha256": "4d3af3fffa502972a6430a6767116296064dab380f946737ea928c04239138e0",
+      "size": 6018
+    }
+  ]
+}

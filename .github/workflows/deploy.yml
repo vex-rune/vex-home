@@ -1,0 +1,49 @@
+name: 🚀 Deploy to Aliyun OSS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📦 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 🟢 配置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📥 安装依赖
+        run: npm ci
+
+      - name: 🏗️ 构建 React 应用
+        run: npm run build
+
+      # ✅ 阿里云官方一键安装 ossutil
+      - name: 📁 官方一键安装 ossutil
+        run: |
+          sudo -v ; curl https://gosspublic.aliyuncs.com/ossutil/install.sh | sudo bash -s -- --install-dir /usr/local/bin --tool-name ossutil
+          ossutil --version
+
+      - name: 🔑 配置 OSS 凭证
+        run: |
+          ossutil config -e oss-cn-shenzhen.aliyuncs.com \
+            -i ${{ secrets.ALIYUN_ACCESS_KEY_ID }} \
+            -k ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }} \
+            -L CH
+
+      - name: 🗑️ 清空 OSS 旧文件
+        run: ossutil rm -r oss://vexrune/ --include "*" -f
+
+      - name: ☁️ 上传构建产物
+        run: |
+          ossutil cp build/ oss://vexrune/ -r -f --acl public-read
+
+      - name: 🎉 部署成功
+        run: echo "✅ 网站正常访问： https://vexrune.top "

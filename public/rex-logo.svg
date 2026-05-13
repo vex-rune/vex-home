@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="rexGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a5b4fc;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#818cf8;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a5b4fc;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0.2" />
+    </linearGradient>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="neonGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#a5b4fc" flood-opacity="0.5"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background glow -->
+  <circle cx="100" cy="100" r="70" fill="url(#glowGradient)" opacity="0.3">
+    <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="65;75;65" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="80" fill="none" stroke="url(#rexGradient)" stroke-width="2" opacity="0.5">
+    <animate attributeName="r" values="75;82;75" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Rotating dashed ring -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#rexGradient)" stroke-width="1" stroke-dasharray="8,12" opacity="0.4">
+    <animateTransform attributeName="transform" type="rotate" from="0 100 100" to="360 100 100" dur="20s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- REX Text -->
+  <g filter="url(#neonGlow)">
+    <!-- R -->
+    <path d="M45 65 L45 135 L65 135 L65 100 L80 135 L105 135 L75 85 L65 85 L65 65 Z" 
+          fill="url(#rexGradient)" stroke="none">
+      <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- E -->
+    <path d="M115 65 L175 65 L175 85 L135 85 L135 100 L165 100 L165 120 L135 120 L135 135 L175 135 L175 155 L115 155 Z" 
+          fill="url(#rexGradient)" stroke="none">
+      <animate attributeName="opacity" values="1;0.9;1" dur="2.5s" repeatCount="indefinite"/>
+    </path>
+    
+    <!-- X -->
+    <path d="M55 165 L90 115 L125 165 L110 165 L90 135 L70 165 Z M125 165 L90 115 L55 165 L70 165 L90 195 L110 165 Z" 
+          fill="url(#rexGradient)" stroke="none">
+      <animate attributeName="opacity" values="0.95;1;0.95" dur="3s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Decorative dots -->
+  <circle cx="100" cy="100" r="4" fill="#a5b4fc" filter="url(#glow)">
+    <animate attributeName="r" values="3;5;3" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Floating particles -->
+  <circle cx="60" cy="50" r="2" fill="#a5b4fc" opacity="0.8">
+    <animate attributeName="cy" values="50;45;50" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="150" cy="60" r="1.5" fill="#818cf8" opacity="0.6">
+    <animate attributeName="cy" values="60;55;60" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="40" cy="120" r="1" fill="#6366f1" opacity="0.7">
+    <animate attributeName="cy" values="120;115;120" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="165" cy="140" r="2" fill="#a5b4fc" opacity="0.5">
+    <animate attributeName="cy" values="140;135;140" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Pulse ring -->
+  <circle cx="100" cy="100" r="50" fill="none" stroke="#a5b4fc" stroke-width="0.5" opacity="0">
+    <animate attributeName="r" values="50;95;50" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Corner accents -->
+  <path d="M20 20 L20 35 M20 20 L35 20" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" opacity="0.6">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M180 20 L180 35 M180 20 L165 20" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" opacity="0.6">
+    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="2s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M20 180 L20 165 M20 180 L35 180" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" opacity="0.6">
+    <animate attributeName="opacity" values="0.5;0.9;0.5" dur="2s" repeatCount="indefinite"/>
+  </path>
+  
+  <path d="M180 180 L180 165 M180 180 L165 180" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" opacity="0.6">
+    <animate attributeName="opacity" values="0.9;0.5;0.9" dur="2s" repeatCount="indefinite"/>
+  </path>
+</svg>
