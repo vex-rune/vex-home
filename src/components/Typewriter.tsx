@@ -28,8 +28,8 @@ export function Typewriter({ texts }: TypewriterProps) {
         if (currentText.length < currentFullText.length) {
           setCurrentText(currentFullText.slice(0, currentText.length + 1));
         } else {
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
+          setTimeout(() => setIsDeleting(true), 3000);
+        } 
       } else {
         if (currentText.length > 0) {
           setCurrentText(currentText.slice(0, -1));
@@ -38,7 +38,7 @@ export function Typewriter({ texts }: TypewriterProps) {
           setCurrentTextIndex((prev) => (prev + 1) % texts.length);
         }
       }
-    }, isDeleting ? 50 : 100);
+    }, isDeleting ? 80 : 150);
 
     return () => clearTimeout(timeout);
   }, [currentText, currentTextIndex, isDeleting, texts]);

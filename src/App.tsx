@@ -282,7 +282,7 @@ export default function App() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <p>© 2024 REXRUNE. Built with React & TypeScript.</p>
+          <p>© 2024 VEX. Built with React & TypeScript.</p>
         </Footer>
       </Content>
     </Container>

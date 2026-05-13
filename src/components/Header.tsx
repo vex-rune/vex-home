@@ -77,7 +77,7 @@ const Title = styled(motion.h1)`
   
   &::before,
   &::after {
-    content: 'REXRUNE';
+    content: 'VEX';
     position: absolute;
     top: 0;
     left: 0;
@@ -250,13 +250,14 @@ export function Header() {
     <HeroContainer>
       <LogoGlow />
       <Title variants={fadeInUp}>
-        REXRUNE
+        VEX
       </Title>
       <Subtitle variants={fadeInUp}>
         <Typewriter texts={[
-          'AI Engineer & Full-Stack Developer',
-          '构建智能化工具，探索无限可能',
-          '让技术服务于创造'
+          '搞软件，耍AI，啥新鲜整啥',
+          '捣鼓实用小工具，不整花架子',
+          '写代码图个乐呵，随心造',
+          '莫马达~',
         ]} />
       </Subtitle>
       <SocialLinks variants={fadeInUp}>
