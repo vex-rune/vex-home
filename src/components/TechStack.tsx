@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { FaJava, FaPython, FaDatabase, FaServer, FaCloud, FaNetworkWired, FaRobot } from 'react-icons/fa';
-import { SiSpring, SiDocker } from 'react-icons/si';
+import { SiDocker } from 'react-icons/si';
 
 const TechStackContainer = styled(motion.div)`
   display: grid;
@@ -21,31 +21,12 @@ const TechItem = styled(motion.div)`
   position: relative;
   overflow: hidden;
   
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-      rgba(165, 180, 252, 0.15) 0%, 
-      transparent 50%);
-    opacity: 0;
-    transition: opacity 0.4s;
-  }
-  
   &:hover {
     transform: translateY(-8px) scale(1.02);
     border-color: rgba(165, 180, 252, 0.4);
     box-shadow: 
       0 20px 40px rgba(99, 102, 241, 0.15),
-      0 0 0 1px rgba(165, 180, 252, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  }
-  
-  &:hover::before {
-    opacity: 1;
   }
   
   svg {

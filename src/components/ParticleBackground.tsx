@@ -1,8 +1,9 @@
-import Particles from '@tsparticles/react';
-import { motion } from 'framer-motion';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
 
-const ParticleBackground = styled.div`
+const ParticleBackgroundDiv = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -100,10 +101,15 @@ const particleOptions = {
 };
 
 export function ParticleBackgroundComponent() {
+  const particlesInit = useCallback(async (engine: any) => {
+    await loadFull(engine);
+  }, []);
+
   return (
-    <ParticleBackground>
+    <ParticleBackgroundDiv>
       <Particles
         id="tsparticles"
+        init={particlesInit}
         options={particleOptions}
         style={{
           position: 'absolute',
@@ -113,6 +119,6 @@ export function ParticleBackgroundComponent() {
           height: '100%'
         }}
       />
-    </ParticleBackground>
+    </ParticleBackgroundDiv>
   );
 }
