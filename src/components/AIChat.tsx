@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { m, motion } from 'framer-motion';
 import styled from 'styled-components';
+import { buildSystemMessage } from '../config/roles';
 
 const ChatContainer = styled(motion.div)`
   position: fixed;
@@ -154,7 +155,7 @@ interface Message {
   content: string;
 }
 
-const API_URL = 'http://8.160.183.109:9100/v1/chat/completions';
+const API_URL = 'http://8.160.183.109:9100/v1/chat';
 
 const STORAGE_KEY = 'chat_history';
 
@@ -195,8 +196,9 @@ export function AIChat() {
           'Origin': '*'
         },
         body: JSON.stringify({
-          model: 'abab5.5-chat',
-          messages: [...messages, userMessage]
+          systemMessage: buildSystemMessage(
+            messages.map(msg => msg.content).join('\n')
+          )
         })
       });
       
@@ -209,7 +211,7 @@ export function AIChat() {
       const data = await response.json();
       const assistantMessage: Message = {
         role: 'assistant',
-        content: data.choices?.[0]?.message?.content || '抱歉，我无法回答这个问题。'
+        content: data.text || '抱歉，我无法回答这个问题。'
       };
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error: any) {
