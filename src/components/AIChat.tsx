@@ -159,6 +159,18 @@ const API_URL = 'http://8.160.183.109:9100/v1/chat';
 
 const STORAGE_KEY = 'chat_history';
 
+const errorMessages = [
+  '冷怂，额这儿出问题了！',
+  '哎幼～ 网络好像有点问题',
+  '这可咋整，连接不上咧！',
+  '额脑子瓦特了，等一哈！',
+  '链接断求了，包着急！',
+  ' 服务器可能睡求 着咧！',
+];
+
+const getErrorMessage = () => 
+  errorMessages[Math.floor(Math.random() * errorMessages.length)];
+
 export function AIChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
@@ -170,7 +182,8 @@ export function AIChat() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    const limited = messages.slice(-100);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(limited));
   }, [messages]);
 
   useEffect(() => {
@@ -198,7 +211,8 @@ export function AIChat() {
         body: JSON.stringify({
           systemMessage: buildSystemMessage(
             messages.map(msg => msg.content).join('\n')
-          )
+          ),
+          userMessage: userMessage.content
         })
       });
       
@@ -207,20 +221,16 @@ export function AIChat() {
       if (!response.ok) {
         throw new Error(`请求失败: ${response.status}`);
       }
-      
       const data = await response.json();
       const assistantMessage: Message = {
         role: 'assistant',
-        content: data.text || '抱歉，我无法回答这个问题。'
+        content: data.text || getErrorMessage()
       };
       setMessages(prev => [...prev, assistantMessage]);
     } catch (error: any) {
-      const errorMsg = error.name === 'AbortError' 
-        ? '请求超时，请检查网络后重试' 
-        : `连接服务器失败: ${error.message}，请稍后重试`;
       setMessages(prev => [...prev, { 
         role: 'assistant', 
-        content: errorMsg
+        content: getErrorMessage()
       }]);
     } finally {
       setIsLoading(false);
@@ -313,9 +323,10 @@ export function AIChat() {
             <InputContainer>
               <ChatInput
                 value={input}
-                onChange={(e) => setInput(e.target.value)}
+                onChange={(e) => setInput(e.target.value.slice(0, 100))}
                 onKeyPress={handleKeyPress}
                 placeholder="发送消息..."
+                maxLength={100}
                 disabled={isLoading}
               />
               <SendButton
