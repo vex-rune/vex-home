@@ -7,6 +7,7 @@ import { SectionTitle } from './components/SectionTitle';
 import { TechStack } from './components/TechStack';
 import { ProjectCard } from './components/ProjectCard';
 import { WikiItem, wikiItems } from './components/WikiItem';
+import { AIChat } from './components/AIChat';
 
 const breatheAnimation = keyframes`
   0%, 100% { opacity: 0.3; transform: scale(1); }
@@ -276,6 +277,8 @@ export default function App() {
             ))}
           </WikiList>
         </WikiSection>
+
+        <AIChat />
 
         <Footer
           initial={{ opacity: 0 }}

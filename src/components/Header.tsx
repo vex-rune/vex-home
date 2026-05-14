@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import styled, { keyframes } from 'styled-components';
-import { FaGithub, FaWeixin, FaPaperPlane, FaMusic } from 'react-icons/fa';
+import { FaGithub, FaWeixin, FaPaperPlane } from 'react-icons/fa';
 import { SiGitee, SiTiktok } from 'react-icons/si';
 import { Typewriter } from './Typewriter';
 
