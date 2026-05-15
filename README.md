@@ -24,3 +24,13 @@
 - AWS / 云原生
 - AI 工程化
 - 微服务架构
+
+## 开发命令
+
+| 命令 | 环境 | API 地址 |
+|------|------|---------|
+| `npm start` | 本地开发 | http://localhost:9100/v1/chat |
+| `npm run start:test` | 测试环境 | https://api.vexrune.top/sagent/v1/chat |
+| `npm run start:prod` | 生产环境 | https://api.vexrune.top/sagent/v1/chat |
+| `npm run build` | 打包生产包 | - |
+| `npm run build:test` | 打包测试包 | - |
