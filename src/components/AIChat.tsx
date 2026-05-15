@@ -155,7 +155,8 @@ interface Message {
   content: string;
 }
 
-const API_URL = 'http://8.160.183.109:9100/v1/chat';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '/';
+const API_URL = `${API_BASE_URL}/v1/chat`;
 
 const STORAGE_KEY = 'chat_history';
 
@@ -165,7 +166,7 @@ const errorMessages = [
   '这可咋整，连接不上咧！',
   '额脑子瓦特了，等一哈！',
   '链接断求了，包着急！',
-  ' 服务器可能睡求 着咧！',
+  '服务器可能睡求 着咧！',
 ];
 
 const getErrorMessage = () => 

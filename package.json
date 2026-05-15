@@ -25,7 +25,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:test": "cross-env REACT_APP_ENV=test react-scripts start",
+    "start:prod": "cross-env REACT_APP_ENV=production react-scripts start",
     "build": "react-scripts build",
+    "build:test": "cross-env REACT_APP_ENV=test react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -46,5 +49,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "http-proxy-middleware": "^2.0.9"
   }
 }
