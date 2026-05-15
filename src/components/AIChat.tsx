@@ -137,16 +137,14 @@ const ChatToggleButton = styled(motion.button)`
   right: 30px;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #6366f1, #a5b4fc);
+  background: none;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  color: white;
-  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+  font-size: 2.5rem;
+  color: #6366f1;
   z-index: 999;
 `;
 
