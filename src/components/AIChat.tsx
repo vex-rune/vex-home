@@ -259,7 +259,7 @@ export function AIChat() {
           whileTap={{ scale: 0.95 }}
           title="打开AI对话"
         >
-          ?
+          🤔
         </ChatToggleButton>
       )}
       
