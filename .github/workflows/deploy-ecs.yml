@@ -1,0 +1,44 @@
+name: 🚀 Deploy to Aliyun ECS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📦 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 🟢 配置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📥 安装依赖
+        run: npm install --legacy-peer-deps
+
+      - name: 🏗️ 构建 React 应用
+        run: npm run build
+
+      - name: 🔑 配置SSH密钥
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.ECS_SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan 8.160.183.109 >> ~/.ssh/known_hosts
+
+      - name: 📤 上传构建产物到ECS服务器
+        run: |
+          scp -r build/* root@8.160.183.109:/app/vex-main/
+
+      - name: 🔄 重启Nginx服务
+        run: |
+          ssh root@8.160.183.109 "systemctl restart nginx"
+
+      - name: 🎉 部署成功
+        run: echo "✅ 网站正常访问： http://8.160.183.109 "
