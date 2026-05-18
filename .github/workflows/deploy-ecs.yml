@@ -101,16 +101,16 @@ jobs:
             exit 1
           fi
 
-      - name: 🔄 重启Nginx服务
+      - name: 🔄 重载Nginx配置
         run: |
-          ssh root@8.160.183.109 "systemctl restart nginx"
+          ssh root@8.160.183.109 "nginx -s reload"
       
-      - name: ✅ Nginx重启验证
+      - name: ✅ Nginx重载验证
         run: |
-          if ssh root@8.160.183.109 "systemctl is-active --quiet nginx"; then
-            echo "✅ Nginx服务重启成功，运行状态正常"
+          if ssh root@8.160.183.109 "nginx -t"; then
+            echo "✅ Nginx配置重载成功，运行状态正常"
           else
-            echo "❌ Nginx服务启动失败，请检查配置"
+            echo "❌ Nginx配置重载失败，请检查配置"
             exit 1
           fi
 
