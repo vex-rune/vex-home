@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/index.css';
+import './datadogRUM-init';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import About from './pages/About';
