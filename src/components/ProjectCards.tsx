@@ -1,0 +1,84 @@
+import styled from 'styled-components';
+
+/* ── Styled Components ── */
+const CardRow = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid #111;
+`;
+
+const CardCell = styled.a`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  text-decoration: none;
+  color: #111;
+  border-right: 1px solid #111;
+  min-height: 120px;
+  transition: background 0.2s ease, color 0.2s ease;
+  &:last-child { border-right: none; }
+  &:hover { background: #000; color: #fff; }
+`;
+
+const CardTitle = styled.h3`
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: inherit;
+`;
+
+const CardDesc = styled.p`
+  font-size: 0.8rem;
+  color: inherit;
+  opacity: 0.7;
+  line-height: 1.5;
+`;
+
+const CardShape = styled.div<{ $shape: string }>`
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 80px;
+  height: 80px;
+  opacity: 0.08;
+  pointer-events: none;
+  ${({ $shape }) => {
+    switch ($shape) {
+      case 'circle':
+        return `border: 2px solid currentColor; border-radius: 50%;`;
+      case 'triangle':
+        return `width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 70px solid currentColor; background: transparent;`;
+      case 'square':
+        return `border: 2px solid currentColor;`;
+      case 'diamond':
+        return `border: 2px solid currentColor; transform: rotate(45deg); width: 60px; height: 60px;`;
+      case 'cross':
+        return `&::before, &::after { content: ''; position: absolute; background: currentColor; }; &::before { width: 2px; height: 80px; left: 39px; top: 0; }; &::after { width: 80px; height: 2px; top: 39px; left: 0; };`;
+      default:
+        return `border: 2px solid currentColor;`;
+    }
+  }}
+`;
+
+/* ── Data ── */
+const showcaseItems = [
+  { title: '个人 Wiki 知识库', desc: '基于现代化知识管理系统的个人 Wiki 干台，支持标签分类与快速访问。', href: 'http://wiki.vexrune.top/', shape: 'circle' },
+  { title: 'AI Agent 智能体', desc: '自主决策的 AI Agent，理解复杂指令，执行多步骤任务。正在努力中。。。', href: 'https://github.com/vex-rune/vex-owl', shape: 'triangle' },
+  { title: 'Esp32 自动网关', desc: '物联网小盒子，基于 ESP32 的 IoT 设备系统，支持设备自组网通信、移动端控制、云端采集与数据可视化。正在努力中。。。', href: 'https://github.com/vex-rune/vex-iotbox', shape: 'square' },
+];
+
+/* ── Component ── */
+export default function ProjectCards() {
+  return (
+    <CardRow>
+      {showcaseItems.map((item) => (
+        <CardCell key={item.title} href={item.href} target="_blank" rel="noopener noreferrer">
+          <CardTitle>{item.title}</CardTitle>
+          <CardDesc>{item.desc}</CardDesc>
+          <CardShape $shape={item.shape} />
+        </CardCell>
+      ))}
+    </CardRow>
+  );
+}
