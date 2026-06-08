@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
 
@@ -11,21 +10,6 @@ const fadeInUp = {
 const stagger = {
   visible: { transition: { staggerChildren: 0.06 } },
 };
-
-const marqueeAnim = keyframes`
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-`;
-
-const floatAnim = keyframes`
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(5deg); }
-`;
-
-const spinSlow = keyframes`
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-`;
 
 const Page = styled.div`
   min-height: 100vh;
@@ -280,7 +264,6 @@ export const aboutData: Record<string, AboutPage> = {
 };
 
 export default function About() {
-  const navigate = useNavigate();
   const [activeId, setActiveId] = useState<string>(() => window.location.hash.slice(1) || 'skills');
 
   useEffect(() => {
