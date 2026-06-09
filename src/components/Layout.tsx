@@ -2,10 +2,11 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Nav from './Nav';
+import BackgroundAnimation from './BackgroundAnimation';
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  background: #f8f5f0;
+  background: transparent;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: #111;
   display: flex;
@@ -22,7 +23,6 @@ const Footer = styled.footer`
   padding: 32px 24px;
   font-size: 0.75rem;
   color: #999;
-  border-top: 1px solid #111;
 `;
 
 export default function Layout() {
@@ -38,11 +38,12 @@ export default function Layout() {
 
   return (
     <Wrapper>
+      <BackgroundAnimation />
       <Nav />
       <Main>
         <Outlet />
       </Main>
-      <Footer>© 2024 VEX</Footer>
+      <Footer>© 2026 VEX</Footer>
     </Wrapper>
   );
 }

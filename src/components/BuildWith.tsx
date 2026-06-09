@@ -49,7 +49,7 @@ const MarqueeTrack = styled.div`
   display: flex;
   width: max-content;
   white-space: nowrap;
-  animation: ${marqueeAnim} 20s linear infinite;
+  animation: ${marqueeAnim} 50s linear infinite;
 `;
 
 const Surfer = styled.span`
@@ -58,6 +58,12 @@ const Surfer = styled.span`
   font-size: 1.2rem;
   animation: ${surferRide} 6s linear infinite;
   pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #eeeeee25;
 `;
 
 const SocialRow = styled.div`
@@ -123,6 +129,7 @@ const QRImg = styled.img`
 
 /* ── Data ── */
 const marqueeText = '搞软件，耍AI，啥新鲜整啥...    捣鼓实用小工具，不整花架子...    写代码图个乐呵，随心造...    莫马达~    ';
+const surferText = '/ * - + ! @ # $ % ^ & * ( ) [ ] ; < > ? / ` ~';
 
 /* ── Component ── */
 export default function BuildWith() {
@@ -149,7 +156,7 @@ export default function BuildWith() {
             <span>{marqueeText}&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <span>{marqueeText}&nbsp;&nbsp;&nbsp;&nbsp;</span>
           </MarqueeTrack>
-          <Surfer>🚲 🚲 🚲 🚲 🚲</Surfer>
+          <Surfer>{surferText}</Surfer>
         </BuildDesc>
       </div>
     </BuildSection>

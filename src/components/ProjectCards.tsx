@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const float = keyframes`
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(8px, -4px); }
+  40% { transform: translate(-6px, -8px); }
+  60% { transform: translate(4px, -3px); }
+  80% { transform: translate(-8px, -6px); }
+  100% { transform: translate(0, 0); }
+`;
 
 /* ── Styled Components ── */
 const CardRow = styled.div`
@@ -16,6 +25,7 @@ const CardCell = styled.a`
   color: #111;
   border-right: 1px solid #111;
   min-height: 120px;
+  overflow: hidden;
   transition: background 0.2s ease, color 0.2s ease;
   &:last-child { border-right: none; }
   &:hover { background: #000; color: #fff; }
@@ -35,28 +45,30 @@ const CardDesc = styled.p`
   line-height: 1.5;
 `;
 
-const CardShape = styled.div<{ $shape: string }>`
+const CardShape = styled.div<{ $shape: string; $index: number }>`
   position: absolute;
   bottom: 16px;
-  right: 16px;
+  right: 30px;
   width: 80px;
   height: 80px;
-  opacity: 0.08;
+  opacity: 0.18;
   pointer-events: none;
+  animation: ${float} ${({ $index }) => 4 + $index}s ease-in-out infinite;
+  animation-delay: ${({ $index }) => $index * 0.7}s;
   ${({ $shape }) => {
     switch ($shape) {
       case 'circle':
-        return `border: 2px solid currentColor; border-radius: 50%;`;
+        return `border: 4px solid currentColor; border-radius: 50%;`;
       case 'triangle':
         return `width: 0; height: 0; border-left: 40px solid transparent; border-right: 40px solid transparent; border-bottom: 70px solid currentColor; background: transparent;`;
       case 'square':
-        return `border: 2px solid currentColor;`;
+        return `border: 4px solid currentColor;`;
       case 'diamond':
-        return `border: 2px solid currentColor; transform: rotate(45deg); width: 60px; height: 60px;`;
+        return `border: 4px solid currentColor; transform: rotate(45deg); width: 60px; height: 60px;`;
       case 'cross':
-        return `&::before, &::after { content: ''; position: absolute; background: currentColor; }; &::before { width: 2px; height: 80px; left: 39px; top: 0; }; &::after { width: 80px; height: 2px; top: 39px; left: 0; };`;
+        return `&::before, &::after { content: ''; position: absolute; background: currentColor; }; &::before { width: 4px; height: 80px; left: 39px; top: 0; }; &::after { width: 80px; height: 4px; top: 39px; left: 0; };`;
       default:
-        return `border: 2px solid currentColor;`;
+        return `border: 4px solid currentColor;`;
     }
   }}
 `;
@@ -72,11 +84,11 @@ const showcaseItems = [
 export default function ProjectCards() {
   return (
     <CardRow>
-      {showcaseItems.map((item) => (
+      {showcaseItems.map((item, index) => (
         <CardCell key={item.title} href={item.href} target="_blank" rel="noopener noreferrer">
           <CardTitle>{item.title}</CardTitle>
           <CardDesc>{item.desc}</CardDesc>
-          <CardShape $shape={item.shape} />
+          <CardShape $shape={item.shape} $index={index} />
         </CardCell>
       ))}
     </CardRow>

@@ -82,7 +82,7 @@ const TitleEn = styled.h1`
   letter-spacing: 0.05em;
   margin: 0 0 24px;
   line-height: 1.1;
-  color: #fff;
+  color: #111;
 `;
 
 const TitleCn = styled.h1`
@@ -91,11 +91,11 @@ const TitleCn = styled.h1`
   letter-spacing: 0.05em;
   margin: 0 0 24px;
   line-height: 1.1;
-  color: #000;
+  color: #fff;
 `;
 
 /* ── Data ── */
-const REPEAT_TEXT = 'V E X';
+const REPEAT_TEXT = 'LUKE';
 const LINE_COUNT = 24;
 const DUPE_COUNT = 12;
 
@@ -143,12 +143,12 @@ export default function Hero() {
       <CircleLayer $x={spot.x} $y={spot.y} $active={spot.active}>
         {renderWatermark('#000')}
         <div style={{ position: 'relative', zIndex: 2 }}>
-          <TitleEn>HELLO<br />I'm  Luke</TitleEn>
+        <TitleCn>你好<br />我是 雷鸣</TitleCn>
         </div>
       </CircleLayer>
 
       <OuterLayer $x={spot.x} $y={spot.y} $active={spot.active}>
-        <TitleCn>你好<br />我是 Luke</TitleCn>
+          <TitleEn>HELLO<br />I'm  Luke</TitleEn>
       </OuterLayer>
     </HeroSection>
   );

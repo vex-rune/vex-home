@@ -11,7 +11,8 @@ const Container = styled.div`
   max-width: 1600px;
   margin: 0 auto;
   border: 1px solid #111;
-  background: #f8f5f0;
+  background: rgba(248, 245, 240, 0.9);
+  backdrop-filter: blur(12px);
 `;
 
 /* ── Data ── */

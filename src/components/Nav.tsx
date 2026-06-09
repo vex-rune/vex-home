@@ -16,12 +16,15 @@ const NavBar = styled.nav`
 `;
 
 const Logo = styled.a`
+  padding: 8px 16px;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   color: #111;
   text-decoration: none;
   cursor: pointer;
+  font-size: 1rem;
+  &:hover { color: #fff; background: #111; }
 `;
 
 const Links = styled.div`
@@ -32,9 +35,11 @@ const Links = styled.div`
 `;
 
 const Link = styled.a`
+  padding: 8px 16px;
   color: #111;
   text-decoration: none;
-  &:hover { color: #555; }
+  font-size: 1rem;
+  &:hover { color: #fff; background: #111; }
 `;
 
 export default function Nav() {
@@ -42,10 +47,11 @@ export default function Nav() {
 
   return (
     <NavBar>
-      <Logo onClick={() => navigate('/')}>VEX</Logo>
+      <Logo onClick={() => navigate('/')}>主页</Logo>
       <Links>
-        <Link href="#showcase">Build</Link>
-        <Link href="https://wiki.vexrune.top/" target="_blank" rel="noopener noreferrer">Blog</Link>
+        <Link href="/about">关于我</Link>
+        <Link href="/#showcase">程序</Link>
+        <Link href="https://wiki.vexrune.top/" target="_blank" rel="noopener noreferrer">博客</Link>
         <Link href="https://github.com/vex-rune" target="_blank" rel="noopener noreferrer">GitHub</Link>
       </Links>
     </NavBar>

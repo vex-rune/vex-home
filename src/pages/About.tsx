@@ -13,7 +13,6 @@ const stagger = {
 
 const Page = styled.div`
   min-height: 100vh;
-  background: #f8f5f0;
   color: #000;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   position: relative;
