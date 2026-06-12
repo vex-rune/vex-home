@@ -13,7 +13,7 @@ const stagger = {
 
 const Page = styled.div`
   min-height: 100vh;
-  color: #000;
+  color: var(--color-text);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   position: relative;
   overflow-x: clip;
@@ -21,67 +21,77 @@ const Page = styled.div`
 `;
 
 const Content = styled(motion.main)`
+  width: 85%;
   max-width: 1280px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 
 const BorderedCard = styled.section`
-  border: 1px solid #000;
-  background: #f8f5f0;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
   margin-bottom: 24px;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
   &:hover {
-    background: #000;
-    color: #fff;
-    * { color: #fff; border-color: #333; }
+    background: var(--color-interactive);
+    color: var(--color-text-inverse);
+    * { color: var(--color-text-inverse); border-color: var(--color-border-light); }
   }
 `;
 
 const CardHeader = styled.div`
   padding: 48px 48px 0;
+  @media (max-width: 768px) {
+    padding: 24px 20px 0;
+  }
 `;
 
 const CardTitle = styled.h1`
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 900;
-  color: #000;
+  color: var(--color-text);
   margin-bottom: 12px;
 `;
 
 const CardSubtitle = styled.p`
   font-size: 0.9rem;
   font-weight: 400;
-  color: #555;
+  color: var(--color-text-secondary);
   line-height: 1.6;
   margin-bottom: 24px;
 `;
 
 const CardBody = styled.div`
   padding: 0 48px 48px;
+  @media (max-width: 768px) {
+    padding: 0 20px 24px;
+  }
 `;
 
 const SectionBlock = styled.div`
   margin-bottom: 32px;
   padding-bottom: 32px;
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid var(--color-border);
   &:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
 `;
 
 const SectionLabel = styled.h3`
   font-size: 1.1rem;
   font-weight: 700;
-  color: #000;
+  color: var(--color-text);
   margin-bottom: 12px;
 `;
 
 const SectionText = styled.p`
   font-size: 0.9rem;
   font-weight: 400;
-  color: #333;
+  color: var(--color-text-secondary);
   line-height: 2;
   margin-bottom: 8px;
 `;
@@ -95,10 +105,10 @@ const TagRow = styled.div`
 
 const Tag = styled.span`
   padding: 4px 12px;
-  border: 1px solid #000;
+  border: 1px solid var(--color-border);
   font-size: 0.8rem;
   font-weight: 400;
-  color: #333;
+  color: var(--color-text-secondary);
 `;
 
 // ── Data ──
@@ -286,7 +296,6 @@ export default function About() {
     setActiveId(id);
   };
 
-  // Build ordered list of all about IDs
   const allIds = Object.keys(aboutData);
 
   return (

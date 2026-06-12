@@ -8,11 +8,17 @@ import ChatWidget from '../components/ChatWidget';
 
 /* ── Layout ── */
 const Container = styled.div`
+  width: 85%;
   max-width: 1600px;
   margin: 0 auto;
-  border: 1px solid #111;
-  background: rgba(248, 245, 240, 0.9);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-alpha);
   backdrop-filter: blur(12px);
+  @media (max-width: 768px) {
+    width: 100%;
+    border-left: none;
+    border-right: none;
+  }
 `;
 
 /* ── Data ── */

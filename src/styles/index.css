@@ -1,5 +1,97 @@
 @import url('https://fonts.googleapis.com/css2?family=Mi+Sans:wght@300;400;500;600;700&display=swap');
 
+:root {
+  /* ── 页面 ── */
+  --color-page-bg: #f5f5f5;
+  --color-page-bg-end: #e8e8e8;
+  --color-surface: #f8f5f0;
+  --color-surface-alpha: rgba(248, 245, 240, 0.9);
+
+  /* ── 文字 ── */
+  --color-text: #111;
+  --color-text-secondary: #555;
+  --color-text-muted: #999;
+  --color-text-inverse: #f8f5f0;
+
+  /* ── 边框 ── */
+  --color-border: #111;
+  --color-border-light: #ccc;
+
+  /* ── 交互 ── */
+  --color-interactive: #111;
+  --color-interactive-hover: #333;
+  --color-overlay: rgba(0, 0, 0, 0.3);
+
+  /* ── 特殊 ── */
+  --color-watermark: rgba(0, 0, 0, 0.06);
+
+  /* ── 场景（背景动画） ── */
+  --color-scene-ground: #2a2a2a;
+  --color-scene-sky: #f5f5f5;
+  --color-scene-sky-end: #e8e8e8;
+  --color-scene-sun: #f5f5f5;
+  --color-scene-sun-glow: rgba(245, 245, 245, 0.5);
+  --color-scene-cloud: #e0e0e0;
+  --color-scene-mountain-far: #d0d0d0;
+  --color-scene-mountain-mid: #b0b0b0;
+  --color-scene-mountain-near: #909090;
+  --color-scene-mountain: #c0c0c0;
+  --color-scene-hedge: #808080;
+  --color-scene-hedge-accent: #909090;
+  --color-scene-element: #666;
+  --color-scene-element-light: #888;
+  --color-scene-element-dark: #606060;
+  --color-scene-element-mid: #707070;
+  --color-scene-road-line: #f5f5f5;
+  --color-scene-speed-line: #c0c0c0;
+}
+
+[data-theme="dark"] {
+  /* ── 页面 ── */
+  --color-page-bg: #1a1a1a;
+  --color-page-bg-end: #111;
+  --color-surface: #2a2a2a;
+  --color-surface-alpha: rgba(42, 42, 42, 0.9);
+
+  /* ── 文字 ── */
+  --color-text: #f0f0f0;
+  --color-text-secondary: #aaa;
+  --color-text-muted: #666;
+  --color-text-inverse: #1a1a1a;
+
+  /* ── 边框 ── */
+  --color-border: #444;
+  --color-border-light: #333;
+
+  /* ── 交互 ── */
+  --color-interactive: #f0f0f0;
+  --color-interactive-hover: #ccc;
+  --color-overlay: rgba(0, 0, 0, 0.6);
+
+  /* ── 特殊 ── */
+  --color-watermark: rgba(255, 255, 255, 0.05);
+
+  /* ── 场景（背景动画） ── */
+  --color-scene-ground: #3a3a3a;
+  --color-scene-sky: #2a2a2a;
+  --color-scene-sky-end: #1a1a1a;
+  --color-scene-sun: #3a3a3a;
+  --color-scene-sun-glow: rgba(60, 60, 60, 0.5);
+  --color-scene-cloud: #3a3a3a;
+  --color-scene-mountain-far: #2a2a2a;
+  --color-scene-mountain-mid: #222;
+  --color-scene-mountain-near: #1a1a1a;
+  --color-scene-mountain: #333;
+  --color-scene-hedge: #2a2a2a;
+  --color-scene-hedge-accent: #333;
+  --color-scene-element: #444;
+  --color-scene-element-light: #3a3a3a;
+  --color-scene-element-dark: #333;
+  --color-scene-element-mid: #383838;
+  --color-scene-road-line: #3a3a3a;
+  --color-scene-speed-line: #444;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -19,8 +111,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
-  color: #111;
+  background: linear-gradient(to bottom, var(--color-page-bg) 0%, var(--color-page-bg-end) 100%);
+  color: var(--color-text);
   overflow-x: hidden;
 }
 

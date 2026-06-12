@@ -6,11 +6,11 @@ const watermarkAnim = keyframes`
 `;
 
 const WatermarkRow = styled.div`
-  font-size: 2.5rem;
+  font-size: clamp(1.2rem, 4vw, 2.5rem);
   font-weight: 500;
   letter-spacing: 0.4em;
   white-space: nowrap;
-  color: rgba(0,0,0,0.06);
+  color: var(--color-watermark);
   user-select: none;
   line-height: 1.5;
   overflow: hidden;

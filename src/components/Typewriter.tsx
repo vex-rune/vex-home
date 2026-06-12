@@ -8,7 +8,7 @@ const TypewriterContainer = styled.span`
 `;
 
 const Cursor = styled(motion.span)`
-  color: #a5b4fc;
+  color: var(--color-text-secondary);
 `;
 
 interface TypewriterProps {
@@ -22,14 +22,14 @@ export function Typewriter({ texts }: TypewriterProps) {
 
   useEffect(() => {
     const currentFullText = texts[currentTextIndex];
-    
+
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         if (currentText.length < currentFullText.length) {
           setCurrentText(currentFullText.slice(0, currentText.length + 1));
         } else {
           setTimeout(() => setIsDeleting(true), 3000);
-        } 
+        }
       } else {
         if (currentText.length > 0) {
           setCurrentText(currentText.slice(0, -1));

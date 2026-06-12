@@ -10,16 +10,22 @@ const ChatToggle = styled.button`
   z-index: 1000;
   width: 48px;
   height: 48px;
-  background: #fff;
-  border: 1px solid #111;
-  color: #111;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.4rem;
   cursor: pointer;
   transition: background 0.2s;
-  &:hover { background: #111; color: #fff; }
+  &:hover { background: var(--color-interactive); color: var(--color-text-inverse); }
+  @media (max-width: 768px) {
+    bottom: 16px;
+    left: 16px;
+    width: 42px;
+    height: 42px;
+  }
 `;
 
 const ChatPanel = styled.div`
@@ -29,15 +35,22 @@ const ChatPanel = styled.div`
   z-index: 1000;
   width: 380px;
   height: 500px;
-  background: #f8f5f0;
-  border: 1px solid #111;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 `;
 
 const ChatHeaderBar = styled.div`
   padding: 12px 16px;
-  border-bottom: 1px solid #111;
+  border-bottom: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -48,19 +61,19 @@ const ChatHeaderBar = styled.div`
 const ChatClearBtn = styled.button`
   background: none;
   border: none;
-  color: #888;
+  color: var(--color-text-muted);
   cursor: pointer;
   font-size: 0.75rem;
-  &:hover { color: #111; }
+  &:hover { color: var(--color-text); }
 `;
 
 const ChatCloseBtn = styled.button`
   background: none;
   border: none;
-  color: #111;
+  color: var(--color-text);
   cursor: pointer;
   font-size: 1rem;
-  &:hover { color: #555; }
+  &:hover { color: var(--color-text-secondary); }
 `;
 
 const ChatMessages = styled.div`
@@ -71,7 +84,7 @@ const ChatMessages = styled.div`
   flex-direction: column;
   gap: 10px;
   &::-webkit-scrollbar { width: 3px; }
-  &::-webkit-scrollbar-thumb { background: #ccc; }
+  &::-webkit-scrollbar-thumb { background: var(--color-border-light); }
 `;
 
 const ChatMsg = styled.div<{ $isUser?: boolean }>`
@@ -79,16 +92,16 @@ const ChatMsg = styled.div<{ $isUser?: boolean }>`
   padding: 10px 14px;
   font-size: 0.85rem;
   line-height: 1.6;
-  color: #111;
+  color: var(--color-text);
   align-self: ${({ $isUser }) => ($isUser ? 'flex-end' : 'flex-start')};
-  border: 1px solid #111;
-  background: ${({ $isUser }) => ($isUser ? '#111' : 'transparent')};
-  color: ${({ $isUser }) => ($isUser ? '#fff' : '#111')};
+  border: 1px solid var(--color-border);
+  background: ${({ $isUser }) => ($isUser ? 'var(--color-interactive)' : 'transparent')};
+  color: ${({ $isUser }) => ($isUser ? 'var(--color-text-inverse)' : 'var(--color-text)')};
 `;
 
 const ChatInputRow = styled.div`
   padding: 12px 16px;
-  border-top: 1px solid #111;
+  border-top: 1px solid var(--color-border);
   display: flex;
   gap: 8px;
 `;
@@ -96,31 +109,31 @@ const ChatInputRow = styled.div`
 const ChatInputField = styled.input`
   flex: 1;
   background: transparent;
-  border: 1px solid #111;
+  border: 1px solid var(--color-border);
   padding: 8px 12px;
   font-size: 0.85rem;
-  color: #111;
+  color: var(--color-text);
   outline: none;
   font-family: inherit;
-  &::placeholder { color: #999; }
+  &::placeholder { color: var(--color-text-muted); }
 `;
 
 const ChatSendBtn = styled.button`
-  background: #111;
-  border: 1px solid #111;
-  color: #fff;
+  background: var(--color-interactive);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-inverse);
   padding: 8px 16px;
   font-size: 0.8rem;
   font-family: inherit;
   cursor: pointer;
   transition: background 0.2s;
-  &:hover { background: #333; }
+  &:hover { background: var(--color-interactive-hover); }
   &:disabled { opacity: 0.4; cursor: not-allowed; }
 `;
 
 const ChatEmpty = styled.div`
   text-align: center;
-  color: #999;
+  color: var(--color-text-muted);
   padding: 40px 0;
   font-size: 0.85rem;
 `;

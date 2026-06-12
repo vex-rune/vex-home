@@ -6,7 +6,7 @@ const SectionTitle = styled.h2`
   font-size: clamp(1.6rem, 3.5vw, 2.4rem);
   font-weight: 700;
   padding: 32px 24px 16px;
-  border-bottom: 1px solid #111;
+  border-bottom: 1px solid var(--color-border);
 `;
 
 const ListRow = styled.a<{ as?: string }>`
@@ -14,17 +14,23 @@ const ListRow = styled.a<{ as?: string }>`
   align-items: center;
   padding: 16px 24px;
   text-decoration: none;
-  color: #111;
+  color: var(--color-text);
   background: transparent;
-  border-bottom: 1px solid #111;
+  border-bottom: 1px solid var(--color-border);
   transition: background 0.2s ease, color 0.2s ease;
-  &:hover { background: #000; color: #fff; }
+  &:hover { background: var(--color-interactive); color: var(--color-text-inverse); }
+  @media (max-width: 768px) {
+    padding: 12px 16px;
+  }
 `;
 
 const ListNum = styled.span`
   font-size: 1rem;
   color: inherit;
   min-width: 36px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const ListTitle = styled.h4`
@@ -39,6 +45,9 @@ const ListDesc = styled.span`
   color: inherit;
   flex: 2;
   padding-left: 16px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const ListArrow = styled(FaArrowRight)`

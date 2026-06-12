@@ -90,7 +90,7 @@ const Bicycle: React.FC = () => {
         cx={REAR_WHEEL.x}
         cy={REAR_WHEEL.y}
         r={BIKE_CONFIG.WHEEL_RADIUS}
-        stroke="#2a2a2a"
+        stroke="currentColor"
         strokeWidth={BIKE_CONFIG.WHEEL_STROKE}
       >
         <animateTransform
@@ -116,22 +116,22 @@ const Bicycle: React.FC = () => {
         <line
           x1={REAR_WHEEL.x} y1={REAR_WHEEL.y - BIKE_CONFIG.WHEEL_RADIUS}
           x2={REAR_WHEEL.x} y2={REAR_WHEEL.y + BIKE_CONFIG.WHEEL_RADIUS}
-          stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
+          stroke="currentColor" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
         />
         <line
           x1={REAR_WHEEL.x - BIKE_CONFIG.WHEEL_RADIUS} y1={REAR_WHEEL.y}
           x2={REAR_WHEEL.x + BIKE_CONFIG.WHEEL_RADIUS} y2={REAR_WHEEL.y}
-          stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
+          stroke="currentColor" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
         />
         <line
           x1={REAR_WHEEL.x - 18} y1={REAR_WHEEL.y - 18}
           x2={REAR_WHEEL.x + 18} y2={REAR_WHEEL.y + 18}
-          stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
+          stroke="currentColor" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
         />
         <line
           x1={REAR_WHEEL.x + 18} y1={REAR_WHEEL.y - 18}
           x2={REAR_WHEEL.x - 18} y2={REAR_WHEEL.y + 18}
-          stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
+          stroke="currentColor" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
         />
       </g>
 
@@ -140,7 +140,7 @@ const Bicycle: React.FC = () => {
         cx={FRONT_WHEEL.x}
         cy={FRONT_WHEEL.y}
         r={BIKE_CONFIG.WHEEL_RADIUS}
-        stroke="#2a2a2a"
+        stroke="currentColor"
         strokeWidth={BIKE_CONFIG.WHEEL_STROKE}
       >
         <animateTransform
@@ -166,22 +166,22 @@ const Bicycle: React.FC = () => {
         <line
           x1={FRONT_WHEEL.x} y1={FRONT_WHEEL.y - BIKE_CONFIG.WHEEL_RADIUS}
           x2={FRONT_WHEEL.x} y2={FRONT_WHEEL.y + BIKE_CONFIG.WHEEL_RADIUS}
-          stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
+          stroke="currentColor" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
         />
         <line
           x1={FRONT_WHEEL.x - BIKE_CONFIG.WHEEL_RADIUS} y1={FRONT_WHEEL.y}
           x2={FRONT_WHEEL.x + BIKE_CONFIG.WHEEL_RADIUS} y2={FRONT_WHEEL.y}
-          stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
+          stroke="currentColor" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
         />
         <line
           x1={FRONT_WHEEL.x - 18} y1={FRONT_WHEEL.y - 18}
           x2={FRONT_WHEEL.x + 18} y2={FRONT_WHEEL.y + 18}
-          stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
+          stroke="currentColor" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
         />
         <line
           x1={FRONT_WHEEL.x + 18} y1={FRONT_WHEEL.y - 18}
           x2={FRONT_WHEEL.x - 18} y2={FRONT_WHEEL.y + 18}
-          stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
+          stroke="currentColor" strokeWidth={BIKE_CONFIG.SPOKE_STROKE}
         />
       </g>
 
@@ -191,42 +191,42 @@ const Bicycle: React.FC = () => {
       <line
         x1={BOTTOM_BRACKET.x} y1={BOTTOM_BRACKET.y}
         x2={REAR_WHEEL.x} y2={REAR_WHEEL.y}
-        stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
+        stroke="currentColor" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
       />
 
       {/* 下管：中轴 → 头管 */}
       <line
         x1={BOTTOM_BRACKET.x} y1={BOTTOM_BRACKET.y}
         x2={HEAD_TUBE.x} y2={HEAD_TUBE.y}
-        stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
+        stroke="currentColor" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
       />
 
       {/* 上管：座管顶 → 头管 */}
       <line
         x1={SEAT_TUBE_TOP.x} y1={SEAT_TUBE_TOP.y}
         x2={HEAD_TUBE.x} y2={HEAD_TUBE.y}
-        stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
+        stroke="currentColor" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
       />
 
       {/* 座管：中轴 → 座管顶 */}
       <line
         x1={BOTTOM_BRACKET.x} y1={BOTTOM_BRACKET.y}
         x2={SEAT_TUBE_TOP.x} y2={SEAT_TUBE_TOP.y}
-        stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
+        stroke="currentColor" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
       />
 
       {/* 后上叉：座管顶 → 后轮轴 */}
       <line
         x1={SEAT_TUBE_TOP.x} y1={SEAT_TUBE_TOP.y}
         x2={REAR_WHEEL.x} y2={REAR_WHEEL.y}
-        stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
+        stroke="currentColor" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
       />
 
       {/* 头管 */}
       <line
         x1={HEAD_TUBE.x} y1={HEAD_TUBE.y - 5}
         x2={HEAD_TUBE.x} y2={HEAD_TUBE.y + 5}
-        stroke="#2a2a2a" strokeWidth="3"
+        stroke="currentColor" strokeWidth="3"
       />
 
       {/* ===== 3. 前叉系统 ===== */}
@@ -235,7 +235,7 @@ const Bicycle: React.FC = () => {
       <line
         x1={HEAD_TUBE.x} y1={HEAD_TUBE.y}
         x2={FRONT_WHEEL.x} y2={FRONT_WHEEL.y}
-        stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
+        stroke="currentColor" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
       />
 
       {/* ===== 4. 传动系统 ===== */}
@@ -245,7 +245,7 @@ const Bicycle: React.FC = () => {
         cx={BOTTOM_BRACKET.x}
         cy={BOTTOM_BRACKET.y}
         r={DRIVETRAIN.chainringRadius}
-        stroke="#2a2a2a" strokeWidth="2" fill="none"
+        stroke="currentColor" strokeWidth="2" fill="none"
       />
 
       {/* 飞轮（圆心 = 后轮轴） */}
@@ -253,19 +253,19 @@ const Bicycle: React.FC = () => {
         cx={REAR_WHEEL.x}
         cy={REAR_WHEEL.y}
         r={DRIVETRAIN.cogRadius}
-        stroke="#2a2a2a" strokeWidth="1.5" fill="none"
+        stroke="currentColor" strokeWidth="1.5" fill="none"
       />
 
       {/* 链条 */}
       <path
         d={`M ${BOTTOM_BRACKET.x} ${BOTTOM_BRACKET.y + DRIVETRAIN.chainringRadius}
             L ${REAR_WHEEL.x} ${REAR_WHEEL.y + DRIVETRAIN.cogRadius}`}
-        stroke="#2a2a2a" strokeWidth="1" strokeDasharray="2,2"
+        stroke="currentColor" strokeWidth="1" strokeDasharray="2,2"
       />
       <path
         d={`M ${BOTTOM_BRACKET.x} ${BOTTOM_BRACKET.y - DRIVETRAIN.chainringRadius}
             L ${REAR_WHEEL.x} ${REAR_WHEEL.y - DRIVETRAIN.cogRadius}`}
-        stroke="#2a2a2a" strokeWidth="1" strokeDasharray="2,2"
+        stroke="currentColor" strokeWidth="1" strokeDasharray="2,2"
       />
 
       {/* 曲柄和脚踏 */}
@@ -282,7 +282,7 @@ const Bicycle: React.FC = () => {
         <line
           x1={BOTTOM_BRACKET.x} y1={BOTTOM_BRACKET.y}
           x2={BOTTOM_BRACKET.x} y2={BOTTOM_BRACKET.y - DRIVETRAIN.crankLength}
-          stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
+          stroke="currentColor" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
         />
         {/* 脚踏 */}
         <rect
@@ -290,7 +290,7 @@ const Bicycle: React.FC = () => {
           y={BOTTOM_BRACKET.y - DRIVETRAIN.crankLength - DRIVETRAIN.pedalHeight / 2}
           width={DRIVETRAIN.pedalWidth}
           height={DRIVETRAIN.pedalHeight}
-          fill="#2a2a2a" rx="1"
+          fill="currentColor" rx="1"
         />
       </g>
 
@@ -300,14 +300,14 @@ const Bicycle: React.FC = () => {
       <line
         x1={HANDLEBAR_CENTER.x} y1={HANDLEBAR_CENTER.y}
         x2={HANDLEBAR_CENTER.x} y2={HANDLEBAR_CENTER.y + HANDLEBAR.stemLength}
-        stroke="#2a2a2a" strokeWidth="2"
+        stroke="currentColor" strokeWidth="2"
       />
 
       {/* 车把 */}
       <line
         x1={HANDLEBAR_CENTER.x - HANDLEBAR.width / 2} y1={HANDLEBAR_CENTER.y}
         x2={HANDLEBAR_CENTER.x + HANDLEBAR.width / 2} y2={HANDLEBAR_CENTER.y}
-        stroke="#2a2a2a" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
+        stroke="currentColor" strokeWidth={BIKE_CONFIG.FRAME_STROKE}
       />
 
       {/* 把套 */}
@@ -316,14 +316,14 @@ const Bicycle: React.FC = () => {
         y={HANDLEBAR_CENTER.y - HANDLEBAR.gripSize / 2}
         width={HANDLEBAR.gripSize}
         height={HANDLEBAR.gripSize}
-        fill="#2a2a2a" rx="2"
+        fill="currentColor" rx="2"
       />
       <rect
         x={HANDLEBAR_CENTER.x + HANDLEBAR.width / 2}
         y={HANDLEBAR_CENTER.y - HANDLEBAR.gripSize / 2}
         width={HANDLEBAR.gripSize}
         height={HANDLEBAR.gripSize}
-        fill="#2a2a2a" rx="2"
+        fill="currentColor" rx="2"
       />
 
       {/* ===== 6. 座垫系统 ===== */}
@@ -332,7 +332,7 @@ const Bicycle: React.FC = () => {
       <line
         x1={SADDLE_CENTER.x} y1={SEAT_TUBE_TOP.y}
         x2={SADDLE_CENTER.x} y2={SADDLE_CENTER.y + SADDLE.height}
-        stroke="#2a2a2a" strokeWidth="2"
+        stroke="currentColor" strokeWidth="2"
       />
 
       {/* 座垫 */}
@@ -341,7 +341,7 @@ const Bicycle: React.FC = () => {
         cy={SADDLE_CENTER.y}
         rx={SADDLE.width}
         ry={SADDLE.height}
-        fill="#2a2a2a"
+        fill="currentColor"
       />
     </svg>
   );

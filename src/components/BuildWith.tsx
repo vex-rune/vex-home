@@ -24,10 +24,13 @@ const surferRide = keyframes`
 /* ── Styled Components ── */
 const BuildSection = styled.div`
   display: flex;
-  gap: 40px;
+  flex-direction: column;
+  gap: 16px;
   padding: 32px 24px;
-  border-bottom: 1px solid #111;
-  align-items: flex-start;
+  border-bottom: 1px solid var(--color-border);
+  @media (max-width: 768px) {
+    padding: 24px 16px;
+  }
 `;
 
 const BuildTitle = styled.h2`
@@ -38,11 +41,15 @@ const BuildTitle = styled.h2`
 
 const BuildDesc = styled.div`
   font-size: 1.1rem;
-  color: #555;
+  color: var(--color-text-secondary);
   line-height: 1.7;
   max-width: 800px;
   overflow: hidden;
   position: relative;
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    width: 100%;
+  }
 `;
 
 const MarqueeTrack = styled.div`
@@ -62,27 +69,28 @@ const Surfer = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  color: #eeeeee25;
+  color: var(--color-watermark);
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const SocialRow = styled.div`
   display: flex;
   gap: 16px;
-  margin-top: 16px;
 `;
 
 const SocialIcon = styled.a`
   width: 36px;
   height: 36px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-border-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #555;
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
   transition: all 0.2s;
-  &:hover { border-color: #111; color: #111; }
+  &:hover { border-color: var(--color-border); color: var(--color-text); }
 `;
 
 const SocialWrap = styled.div`
@@ -98,8 +106,8 @@ const QRPopup = styled.div`
   visibility: hidden;
   transition: none;
   padding: 10px;
-  background: #fff;
-  border: 1px solid #111;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   z-index: 100;
   pointer-events: none;
   width: 200px;
@@ -117,7 +125,7 @@ const QRPopup = styled.div`
     left: 50%;
     transform: translateX(-50%);
     border: 6px solid transparent;
-    border-top-color: #111;
+    border-top-color: var(--color-border);
   }
 `;
 
@@ -136,7 +144,7 @@ export default function BuildWith() {
   return (
     <BuildSection>
       <BuildTitle>社交媒体</BuildTitle>
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <SocialRow>
           <SocialIcon href="https://github.com/fomalhaut-m" target="_blank" rel="noopener noreferrer"><FaGithub /></SocialIcon>
           <SocialIcon href="https://www.feishu.cn/invitation/page/add_contact/?token=cbdrbf0a-b729-42a7-865d-55376072c05d" target="_blank" rel="noopener noreferrer"><FaPaperPlane /></SocialIcon>

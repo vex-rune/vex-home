@@ -13,7 +13,10 @@ const float = keyframes`
 const CardRow = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-bottom: 1px solid #111;
+  border-bottom: 1px solid var(--color-border);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const CardCell = styled.a`
@@ -22,13 +25,20 @@ const CardCell = styled.a`
   flex-direction: column;
   padding: 24px;
   text-decoration: none;
-  color: #111;
-  border-right: 1px solid #111;
+  color: var(--color-text);
+  border-right: 1px solid var(--color-border);
+  border-bottom: none;
   min-height: 120px;
   overflow: hidden;
   transition: background 0.2s ease, color 0.2s ease;
   &:last-child { border-right: none; }
-  &:hover { background: #000; color: #fff; }
+  &:hover { background: var(--color-interactive); color: var(--color-text-inverse); }
+  @media (max-width: 768px) {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    min-height: auto;
+    &:last-child { border-bottom: none; }
+  }
 `;
 
 const CardTitle = styled.h3`
