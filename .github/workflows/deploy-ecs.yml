@@ -86,20 +86,35 @@ jobs:
             exit 1
           fi
 
-      - name: 📤 上传构建产物到服务器
+      - name: �️ 清理服务器旧文件
         run: |
-          echo "🚀 开始上传文件..."
-          scp -o StrictHostKeyChecking=no -r build/* root@8.160.183.109:/app/vex-main/
-      
-      - name: ✅ 文件上传验证
+          echo "🗑️ 删除旧部署文件..."
+          ssh root@8.160.183.109 "rm -rf /app/vex-main/* && echo '✅ 旧文件已清理'"
+
+      - name: 📦 压缩构建产物
+        run: |
+          cd build
+          tar -czf ../build.tar.gz .
+          cd ..
+          echo "✅ 压缩完成，压缩包大小：$(du -sh build.tar.gz | cut -f1)"
+
+      - name: 📤 上传并解压到服务器
+        run: |
+          echo "🚀 上传压缩包..."
+          scp -o StrictHostKeyChecking=no build.tar.gz root@8.160.183.109:/tmp/
+          echo "📦 服务器解压中..."
+          ssh root@8.160.183.109 "cd /app/vex-main && tar -xzf /tmp/build.tar.gz && rm -f /tmp/build.tar.gz"
+          echo "✅ 上传并解压完成"
+
+      - name: ✅ 文件部署验证
         run: |
           REMOTE_FILE_COUNT=$(ssh root@8.160.183.109 "find /app/vex-main -type f | wc -l")
           LOCAL_FILE_COUNT=$(find build -type f | wc -l)
           if [ "$REMOTE_FILE_COUNT" -eq "$LOCAL_FILE_COUNT" ]; then
-            echo "✅ 文件上传完成，共上传 $REMOTE_FILE_COUNT 个文件"
+            echo "✅ 文件部署完成，共 $REMOTE_FILE_COUNT 个文件"
             echo "✅ 远程目录大小：$(ssh root@8.160.183.109 "du -sh /app/vex-main | cut -f1")"
           else
-            echo "❌ 文件上传不完整，本地 $LOCAL_FILE_COUNT 个文件，远程只有 $REMOTE_FILE_COUNT 个"
+            echo "❌ 文件不完整，本地 $LOCAL_FILE_COUNT 个文件，远程 $REMOTE_FILE_COUNT 个"
             exit 1
           fi
 
