@@ -13,6 +13,7 @@ const Container = styled.div`
   margin: 0 auto;
   border: 1px solid var(--color-border);
   background: var(--color-surface-alpha);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   @media (max-width: 768px) {
     width: 100%;

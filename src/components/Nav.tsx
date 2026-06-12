@@ -15,6 +15,7 @@ const NavBar = styled.nav`
   justify-content: space-between;
   padding: 16px 40px;
   background: var(--color-surface-alpha);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   @media (max-width: 768px) {
     padding: 12px 16px;
@@ -48,6 +49,7 @@ const Links = styled.div<{ $open: boolean }>`
     gap: 0;
     padding: 72px 0 32px;
     background: var(--color-surface-alpha);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     border-left: 1px solid var(--color-border);
     transform: translateX(${({ $open }) => ($open ? '0' : '100%')});
@@ -130,7 +132,7 @@ export default function Nav() {
     <>
       <NavBar>
         <Logo onClick={() => navigate('/')}>主页</Logo>
-        <MenuToggle $open={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>
+        <MenuToggle $open={menuOpen} onClick={() => setMenuOpen(!menuOpen)} aria-label="菜单">
           <span /><span /><span />
         </MenuToggle>
         <Links $open={menuOpen}>

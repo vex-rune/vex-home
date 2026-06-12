@@ -38,6 +38,7 @@ const WatermarkRow = styled.div<{ $color?: string }>`
   letter-spacing: 0.4em;
   white-space: nowrap;
   color: ${({ $color }) => $color || 'var(--color-watermark)'};
+  -webkit-user-select: none;
   user-select: none;
   line-height: 1.8;
 `;
