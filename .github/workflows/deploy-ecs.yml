@@ -38,6 +38,8 @@ jobs:
 
       - name: 🏗️ 构建 React 应用
         run: npm run build
+        env:
+          CI: false
       
       - name: ✅ 构建产物验证
         run: |
